@@ -3,15 +3,14 @@ import java.util.Scanner;
 public class TaskNo9 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int number;
-        System.out.print("Ion says: ");
-        int ionNumber = scan.nextInt();
-        ionNumber -= 2;
-        System.out.print("Vasile says: ");
-        for(int i = 0; i < 5; i++){
-            System.out.print((ionNumber+i));
-            System.out.print("  ");
-        }
+        System.out.print("Nicolae write your age : ");
+        int ageNicolae = scan.nextInt();
+        System.out.print("Mihai write your age : ");
+        int ageMihai = scan.nextInt();
 
+        double avg = (ageNicolae + ageMihai) / 2;
+        int difference = ageNicolae - ageMihai;
+
+        System.out.print("Average is: " + avg + "; Difference is: " + Math.abs(difference) + " age");
     }
 }

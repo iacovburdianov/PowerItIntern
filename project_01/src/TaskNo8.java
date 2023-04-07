@@ -1,25 +1,16 @@
 import java.util.Scanner;
 
 public class TaskNo8 {
-
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            long binaryNum;
-            long decimalNum = 0;
-            long j = 1;
-            long remainder;
-            System.out.print("Input a binary number: ");
-            binaryNum = scan.nextLong();
-
-            while (binaryNum != 0) {
-                remainder = binaryNum % 10;
-                decimalNum = decimalNum + remainder*j;
-                j = j*2;
-                binaryNum = binaryNum / 10;
-            }
-
-            System.out.println("Decimal Number: " + decimalNum);
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Ion says: ");
+        int ionNumber = scan.nextInt();
+        ionNumber -= 2;
+        System.out.print("Vasile says: ");
+        for(int i = 0; i < 5; i++){
+            System.out.print((ionNumber+i));
+            System.out.print("  ");
         }
 
-
+    }
 }
