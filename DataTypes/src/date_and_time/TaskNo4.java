@@ -3,7 +3,7 @@ package date_and_time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/*Write a Java program to extract date, time from the date string.*/
 public class TaskNo4 {
     public static void main(String[] args) {
         try {

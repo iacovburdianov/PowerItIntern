@@ -2,7 +2,12 @@ package date_and_time;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-
+/*
+* Write a Java program to print yyyy-MM-dd,
+* HH:mm:ss, yyyy-MM-dd HH:mm:ss,
+* E MMM yyyy HH:mm:ss.SSSZ and HH:mm:ss,Z,
+* format pattern for date and time.
+* */
 public class TaskNo5 {
     public static void main(String[] args) {
         String result;
