@@ -7,7 +7,7 @@ import java.util.Objects;
  * @date : 4/12/2023
  * @project : Modifiers In Java
  */
-public class TaskNo10and11Modifiers {
+public class TaskNo10and11and12and13Modifiers {
     public static void main(String[] args) {
         Worker worker = new Worker("ION Caramitru");
 
