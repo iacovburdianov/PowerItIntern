@@ -1,0 +1,2 @@
+Define a class ListOfPersons, each of whose objects maintains the information about a sequence of objects of a class Person (for each person, the information of interest are the name, surname, age, and city of residence). The class ListOfPersons should provide, besides the methods for insertion, deletion and modification of a person, a method to print all persons in the list, a method to count the number of persons in the list that live in a given city passed as parameter, and a method that computes the average age of all
+persons in the list.

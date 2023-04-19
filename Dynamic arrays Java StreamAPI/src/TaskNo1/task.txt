@@ -1,0 +1,9 @@
+Whenever on the domain of the elements of a list an order is defined, we can consider ordered lists, in which the sequence of elements in a list is ordered. Provide a recursive and an iterative implementation of the following operations on ordered lists of integers:
+
+check whether a list is actually ordered;
+search of a given element, exploiting the fact that the list is ordered to interrupt the search when the element has not been found and we know that it cannot appear in the rest of the list;
+insertion of a new element, maintaining the list ordered;
+deletion of a given element;
+merge of two ordered lists into a new ordered list containing the elements of both lists (but whose nodes are newly created);
+merge of two ordered lists into an ordered list that reuses the nodes of the two lists (hence, the two lists are destroyed by the method call);
+intersection of two ordered lists, to produce a new ordered list containing exactly those elements that are present in both lists.

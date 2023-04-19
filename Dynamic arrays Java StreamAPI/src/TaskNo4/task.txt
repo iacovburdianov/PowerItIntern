@@ -1,0 +1,11 @@
+Define a class MyString, that handles sequences of characters (by means of a list of char)
+ and implements some methods similar to those of the class String.
+ Specifically, implement a constructor that creates an object of the class starting from a string,
+  and the methods concat(), equals(), substring(), length(), charAt(), indexOf(), and toUpperCase().
+  Realize also a method, external to the class MyString,
+  that behaves in the same way as the method Integer.parseInt().
+  More precisely, given an object of the class MyString,
+  the method should return the integer value corresponding to the numeric
+  digits represented in the MyString object, or should throw an exception
+  if the object contains characters that are different from the digits ’0’, . . . , ’9’.
+ Implement the latter method both using iteration and using recursion.

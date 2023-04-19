@@ -1,0 +1,9 @@
+Define a class BigNumber, whose objects represent positive integers with an unbounded
+number of digits, realized by means of a list of integers.
+The class should implement a constructor that creates a BigNumber object starting
+from a string of numeric digits, the methods to calculate the sum and difference of two BigNumbers,
+the predicates to compare whether two BigNumbers are equal and whether one is smaller than another,
+and the method toString that constructs the string corresponding to the number. For the difference,
+return the object representing the number 0 in the case where the result of the subtraction would be
+negative. We suggest to represent a BigNumber using a list of integers in which the least significant
+digit is the first element of the list, and the most significant digit the last element of the list.

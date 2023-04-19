@@ -1,0 +1,2 @@
+Define a class ListCDs that maintains information about a sequence of objects of a class CD (for each CD, the information of interest are author, title, publication year, and price). The class ListCDs should provide, besides the methods for inserting, deleting and printing the elements of a list, a method that calculates the total price of the CDs contained in the list, and a method that returns the list of CDs of a given
+author passed as parameter.
