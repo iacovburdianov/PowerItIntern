@@ -1,20 +1,36 @@
 package TaskNo7Inheritance;
 
-/**
- * Created by Admin on 4/14/2023
- *
- * @author : Admin
- * @date : 4/14/2023
- * @project : Inheritance
- */
 public class Room {
-    private boolean status = true;
+    private int roomNumber;
+    private int floor;
+    private Visitor occupant;
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public Room(int roomNumber, int floor) {
+        this.roomNumber = roomNumber;
+        this.floor = floor;
     }
 
-    public boolean getStatus() {
-        return status;
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public boolean isAvailable() {
+        return occupant == null;
+    }
+
+    public Visitor getOccupant() {
+        return occupant;
+    }
+
+    public void assignVisitor(Visitor visitor) {
+        occupant = visitor;
+    }
+
+    public void removeOccupant() {
+        occupant = null;
     }
 }

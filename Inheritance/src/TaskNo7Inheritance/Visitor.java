@@ -1,13 +1,17 @@
 package TaskNo7Inheritance;
 
 /**
- * Created by Admin on 4/14/2023
+ * Created by Admin on 4/20/2023
  *
  * @author : Admin
- * @date : 4/14/2023
+ * @date : 4/20/2023
  * @project : Inheritance
  */
-public class Visitor {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+class Visitor {
     private String name;
     private String address;
     private String favoriteHotel;
@@ -22,23 +26,12 @@ public class Visitor {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getFavoriteHotel() {
         return favoriteHotel;
     }
-
-    public void setFavoriteHotel(String favoriteHotel) {
-        this.favoriteHotel = favoriteHotel;
-    }
 }
+

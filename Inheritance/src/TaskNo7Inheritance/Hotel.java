@@ -1,45 +1,40 @@
 package TaskNo7Inheritance;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-/**
- * Created by Admin on 4/14/2023
- *
- * @author : Admin
- * @date : 4/14/2023
- * @project : Inheritance
- */
 public class Hotel {
-    Visitor visitor;
-    int roomNumber;
-    Room room;
+    private List<Room> rooms;
 
-    Map<Integer,Boolean> rooms = new HashMap<>();
-    public Hotel() {
-        for (int i = 1; i <= 50; i++) {
-            Integer key = i;
-            Boolean value = false;
-            rooms.put(key,value);
+    public Hotel(int numRooms) {
+        rooms = new ArrayList<>(numRooms);
+        for (int i = 1; i <= numRooms; i++) {
+            int floor = (i - 1) / 10 + 1; // assuming 10 rooms per floor
+            Room room = new Room(i, floor);
+            rooms.add(room);
         }
     }
 
-
-
-
-
-    public void occupyRoom(Visitor visitor) {
-        roomNumber = getRandomNumber(1,50);
-        rooms.replace(roomNumber,true,false);
+    public int getNumRooms() {
+        return rooms.size();
     }
 
-    public void freesRoom(Visitor visitor) {
-
+    public Room getRoom(int index) {
+        return rooms.get(index);
     }
 
-    public int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
+    public Room assignRandomAvailableRoom() {
+        List<Room> availableRooms = new ArrayList<>();
+        for (Room room : rooms) {
+            if (room.isAvailable()) {
+                availableRooms.add(room);
+            }
+        }
+        if (availableRooms.isEmpty()) {
+            return null;
+        }
+        Random random = new Random();
+        return availableRooms.get(random.nextInt(availableRooms.size()));
     }
-
-
 }
