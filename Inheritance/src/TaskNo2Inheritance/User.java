@@ -11,9 +11,9 @@ import java.util.Date;
  * @project : Inheritance
  */
 public class User {
-    public String name;
-    public String surname;
-    public int year;
+    public final String name;
+    public final String surname;
+    public final int year;
 
     public User(String name, String surname, int year) {
         this.name = name;
