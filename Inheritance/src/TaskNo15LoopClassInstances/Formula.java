@@ -8,7 +8,7 @@ package TaskNo15LoopClassInstances;
  * @project : Inheritance
  */
 public class Formula {
-    public void calculate(double x){
+    public void calculate(){
         System.out.println("Write your own formula");
     }
 

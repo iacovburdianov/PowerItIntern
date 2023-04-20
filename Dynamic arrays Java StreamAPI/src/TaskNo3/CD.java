@@ -1,14 +1,15 @@
 package TaskNo3;
 
 /**
- * Created by Admin on 4/19/2023
+ * Created by Admin on 4/20/2023
  *
  * @author : Admin
- * @date : 4/19/2023
- * @project : Dynamic arrays Java StreamAPI
+ * @date : 4/20/2023
+ * @project : PowerItIntern
  */
-public class CD {
+import java.util.ArrayList;
 
+public class CD {
     private String author;
     private String title;
     private int publicationYear;
@@ -35,10 +36,6 @@ public class CD {
 
     public double getPrice() {
         return price;
-    }
-
-    public String toString() {
-        return author + " - " + title + " (" + publicationYear + ") - $" + price;
     }
 }
 

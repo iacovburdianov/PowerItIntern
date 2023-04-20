@@ -2,6 +2,7 @@ package TaskNo1;
 
 import org.w3c.dom.Node;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -90,6 +91,45 @@ public class Main {
     public static List<Integer> deleteElement(List<Integer> list, int elementToDelete) {
         list.remove(Integer.valueOf(elementToDelete));
         return list;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> intList = new ArrayList<>();
+
+        for (int i = 1; i <= 10; i++) {
+            intList.add(i * 12);
+        }
+
+
+        Main.deleteElement(intList,24);
+        System.out.println("Integer List: " + intList);
+
+        Main.insertInOrder(intList,35);
+        System.out.println("Integer List: " + intList);
+
+
+
+        int[] arr = {1, 3, 5, 7, 9, 11};
+        int target = 7;
+        int index = binarySearchRecursive(arr, target, 0, arr.length - 1);
+        if (index >= 0) {
+            System.out.println("Target found at index " + index);
+        } else {
+            System.out.println("Target not found");
+        }
+
+
+        int[] arr1 = {1, 3, 5, 7, 9, 11};
+        int target1 = 7;
+        int index1 = linearSearchIterative(arr1, target1);
+        if (index1 >= 0) {
+            System.out.println("Target found at index " + index1);
+        } else {
+            System.out.println("Target not found");
+        }
+
+
+        System.out.println("Is list Ordered? response: " + Main.isListOrdered(intList));
     }
 
 }

@@ -10,32 +10,27 @@ package TaskNo5;
 import java.util.ArrayList;
 
 
-public class BigNumber {
-    private ArrayList<Integer> digits;
+import java.util.*;
 
-    public BigNumber(String s) {
-        digits = new ArrayList<Integer>();
-        for (int i = s.length() - 1; i >= 0; i--) {
-            char c = s.charAt(i);
-            if (Character.isDigit(c)) {
-                digits.add(c - '0');
-            } else {
-                throw new IllegalArgumentException("Invalid character in input string: " + c);
-            }
+public class BigNumber {
+    private List<Integer> digits;
+
+    public BigNumber(String num) {
+        digits = new ArrayList<>();
+        for (int i = num.length() - 1; i >= 0; i--) {
+            digits.add(Character.getNumericValue(num.charAt(i)));
         }
-        removeLeadingZeros();
     }
 
-    public BigNumber(ArrayList<Integer> digits) {
-        this.digits = new ArrayList<Integer>(digits);
-        removeLeadingZeros();
+    public BigNumber(List<Integer> digits) {
+        this.digits = digits;
     }
 
     public BigNumber add(BigNumber other) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        List<Integer> resultDigits = new ArrayList<>();
         int carry = 0;
         int i = 0;
-        while (i < digits.size() || i < other.digits.size() || carry != 0) {
+        while (i < digits.size() || i < other.digits.size() || carry > 0) {
             int sum = carry;
             if (i < digits.size()) {
                 sum += digits.get(i);
@@ -43,56 +38,68 @@ public class BigNumber {
             if (i < other.digits.size()) {
                 sum += other.digits.get(i);
             }
-            result.add(sum % 10);
+            resultDigits.add(sum % 10);
             carry = sum / 10;
             i++;
         }
-        return new BigNumber(result);
+        return new BigNumber(resultDigits);
     }
 
     public BigNumber subtract(BigNumber other) {
-        if (this.isSmallerThan(other)) {
-            return new BigNumber("0");
-        }
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        List<Integer> resultDigits = new ArrayList<>();
         int borrow = 0;
         int i = 0;
-        while (i < digits.size()) {
-            int diff = digits.get(i) - borrow;
+        while (i < digits.size() || i < other.digits.size()) {
+            int diff = borrow;
+            if (i < digits.size()) {
+                diff -= digits.get(i);
+            }
             if (i < other.digits.size()) {
-                diff -= other.digits.get(i);
+                diff += other.digits.get(i);
             }
             if (diff < 0) {
                 diff += 10;
-                borrow = 1;
+                borrow = -1;
             } else {
                 borrow = 0;
             }
-            result.add(diff);
+            resultDigits.add(diff);
             i++;
         }
-        return new BigNumber(result);
+        // remove leading zeros
+        while (resultDigits.size() > 1 && resultDigits.get(resultDigits.size() - 1) == 0) {
+            resultDigits.remove(resultDigits.size() - 1);
+        }
+        return new BigNumber(resultDigits);
     }
 
-    public boolean isEqualTo(BigNumber other) {
-        return digits.equals(other.digits);
-    }
-
-    public boolean isSmallerThan(BigNumber other) {
-        if (digits.size() < other.digits.size()) {
-            return true;
-        } else if (digits.size() > other.digits.size()) {
-            return false;
-        } else {
-            for (int i = digits.size() - 1; i >= 0; i--) {
-                if (digits.get(i) < other.digits.get(i)) {
-                    return true;
-                } else if (digits.get(i) > other.digits.get(i)) {
-                    return false;
-                }
-            }
+    public boolean equals(BigNumber other) {
+        if (digits.size() != other.digits.size()) {
             return false;
         }
+        for (int i = 0; i < digits.size(); i++) {
+            if (!digits.get(i).equals(other.digits.get(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean lessThan(BigNumber other) {
+        if (digits.size() < other.digits.size()) {
+            return true;
+        }
+        if (digits.size() > other.digits.size()) {
+            return false;
+        }
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            if (digits.get(i) < other.digits.get(i)) {
+                return true;
+            } else if (digits.get(i) > other.digits.get(i)) {
+                return false;
+            }
+        }
+        return false;
     }
 
     public String toString() {
@@ -103,10 +110,13 @@ public class BigNumber {
         return sb.toString();
     }
 
-    private void removeLeadingZeros() {
-        while (digits.size() > 1 && digits.get(digits.size() - 1) == 0) {
-            digits.remove(digits.size() - 1);
-        }
+    public static void main(String[] args) {
+        BigNumber num1 = new BigNumber("12345678901234567890");
+        BigNumber num2 = new BigNumber("98765432109876543210");
+        System.out.println(num1.add(num2)); // 111111111111111111100
+        System.out.println(num2.subtract(num1)); // 86419753208641975320
+        System.out.println(num1.lessThan(num2));
     }
 }
+
 

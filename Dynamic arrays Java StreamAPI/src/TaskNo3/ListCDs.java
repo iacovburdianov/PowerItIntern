@@ -1,52 +1,43 @@
 package TaskNo3;
 
-/**
- * Created by Admin on 4/19/2023
- *
- * @author : Admin
- * @date : 4/19/2023
- * @project : Dynamic arrays Java StreamAPI
- */
 import java.util.ArrayList;
 
 public class ListCDs {
-
     private ArrayList<CD> cds;
 
     public ListCDs() {
-        cds = new ArrayList<CD>();
+        cds = new ArrayList<>();
     }
 
     public void addCD(CD cd) {
         cds.add(cd);
     }
 
-    public void removeCD(int index) {
-        cds.remove(index);
+    public void removeCD(CD cd) {
+        cds.remove(cd);
     }
 
     public void printCDs() {
         for (CD cd : cds) {
-            System.out.println(cd);
+            System.out.println(cd.getAuthor() + " - " + cd.getTitle() + " (" + cd.getPublicationYear() + ") - $" + cd.getPrice());
         }
     }
 
     public double getTotalPrice() {
-        double totalPrice = 0.0;
+        double totalPrice = 0;
         for (CD cd : cds) {
             totalPrice += cd.getPrice();
         }
         return totalPrice;
     }
 
-    public ArrayList<CD> getCDsByAuthor(String author) {
-        ArrayList<CD> cdsByAuthor = new ArrayList<CD>();
+    public ArrayList<CD> getCdsByAuthor(String author) {
+        ArrayList<CD> result = new ArrayList<>();
         for (CD cd : cds) {
             if (cd.getAuthor().equals(author)) {
-                cdsByAuthor.add(cd);
+                result.add(cd);
             }
         }
-        return cdsByAuthor;
+        return result;
     }
 }
-
