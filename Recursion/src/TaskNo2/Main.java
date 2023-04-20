@@ -14,16 +14,16 @@ public class Main {
     public static void main(String[] args) {
         int n = 1112300123;
         int k = 1;
-        System.out.println(countdigits(n,k));
+        System.out.println(countDigits(n,k));
     }
 
-    private static int countdigits(int n, int k) {
+    private static int countDigits(int n, int k) {
         if (n == 0) {
             return 0;
         }
         int digit = n % 10;
         if (digit == k)
-            return 1 + countdigits(n / 10,k);
-        return countdigits(n/10,k);
+            return 1 + countDigits(n / 10,k);
+        return countDigits(n/10,k);
     }
 }

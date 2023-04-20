@@ -20,12 +20,11 @@ public class TaskNo5 {
 
     public static void check(String password) {
         String pattern = "^(?=.*?\\d.*\\d)[a-zA-Z0-9]{8,}$";
-        if ((password.length() >= 10)) {
-            if (password.matches(pattern)) {
-                System.out.println("Password " + password + " is valid");
-            }else {
-                System.out.println("Incorect password.");
-            }
-        }System.out.println("Incorect password.");
+        if (10 <= password.length() && password.matches(pattern)) {
+            System.out.println("Password " + password + " is valid");
+        }
+        else {
+            System.out.println("Incorect password.");
+        }
     }
 }

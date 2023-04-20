@@ -9,15 +9,15 @@ import java.util.Scanner;
  */
 public class TaskNo2 {
     String name;
-    String student_id;
+    String studentId;
     int score;
     public TaskNo2() {
         this(" ", " ",0);
     }
 
-    public TaskNo2(String name, String student_id, int score) {
+    public TaskNo2(String name, String studentId, int score) {
         this.name = name;
-        this.student_id = student_id;
+        this.studentId = studentId;
         this.score = score;
     }
 
@@ -32,16 +32,16 @@ public class TaskNo2 {
 
         for (int i = 0; i < nrOfStudents; i++) {
             student.name = scanner.next();
-            student.student_id = scanner.next();
+            student.studentId = scanner.next();
             student.score = scanner.nextInt();
             if (max.score < student.score) {
                 max.name = student.name;
-                max.student_id = student.student_id;
+                max.studentId = student.studentId;
                 max.score = student.score;
             }
             if (min.score > student.score) {
                 min.name = student.name;
-                min.student_id = student.student_id;
+                min.studentId = student.studentId;
                 min.score = student.score;
             }
         }

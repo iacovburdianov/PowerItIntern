@@ -6,6 +6,13 @@
  * @project : Modifiers In Java
  */
 public class TaskNo9Modifiers {
+    public static void main(String[] args) {
+        Person personIon = new Person("Ion", "masculin",34);
+        String genderOfIon = personIon.getGender();
+        System.out.println(genderOfIon);
+        personIon.setGender("feminin");
+        System.out.println(personIon.getGender());
+    }
 
 }
 class Person {

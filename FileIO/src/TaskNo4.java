@@ -1,5 +1,3 @@
-import java.io.*;
-
 /**
  * Created by Admin on 4/11/2023
  *
@@ -7,24 +5,24 @@ import java.io.*;
  * @date : 4/11/2023
  * @project : FileIO
  */
+
+import java.io.BufferedReader;
+        import java.io.FileReader;
+        import java.io.IOException;
+
 public class TaskNo4 {
     public static void main(String[] args) {
-        String strLine = "";
-        try {
-            LineNumberReader reader =
-                    new LineNumberReader(
-                            new InputStreamReader(
-                                    new FileInputStream(
-                                            "D:\\PowerIT\\repositories\\PowerItIntern\\FileIO\\src\\internship\\powerit\\test.txt"),
-                                    "UTF-8"));
-            while (((strLine = reader.readLine()) != null) && reader.getLineNumber() <= 3){
-                System.out.println(strLine);
+        String fileName = "D:\\PowerIT\\repositories\\PowerItIntern\\FileIO\\src\\internship\\powerit\\test.txt"; // Replace with your file name
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            int lineNumber = 1;
+            while ((line = br.readLine()) != null && lineNumber <= 3) {
+                System.out.println(line);
+                lineNumber++;
             }
-            reader.close();
-        } catch (FileNotFoundException e) {
-            System.err.println("File not found");
         } catch (IOException e) {
-            System.err.println("Unable to read the file.");
+            System.err.println("Error reading file: " + e.getMessage());
         }
     }
 }

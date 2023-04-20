@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created by Admin on 4/12/2023
  *
@@ -7,12 +9,21 @@
  */
 public class TaskNo9 {
     public static void main(String[] args) {
-        int[][] matrix = new int[][] {{1,2,3},{11,22,33},{111,222,333}};
-        Matrix.rowAtPosition(matrix,1);
+        int[][] matrix1 = new int[][] {{1,2,3},{11,22,33},{111,222,333}};
+        int[][] matrix2 = new int[][] {{1,2,3},{11,22,33},{111,222,333}};
+        Matrix.rowAtPosition(matrix1,1);
         System.out.println("\n");
-        Matrix.itemAtPosition(matrix,2,2);
+        Matrix.itemAtPosition(matrix1,2,2);
         System.out.println("\n");
-        Matrix.colonAtPosition(matrix,2);
+        Matrix.colonAtPosition(matrix1,2);
+        System.out.println("\n");
+        System.out.println(Arrays.deepToString(Matrix.sumTwoMatrix(matrix1, matrix2, matrix1.length)));
+        System.out.println("\n");
+        Matrix.multiplyMatrix(3,3,matrix1,
+                                    3,3,matrix2);
+        System.out.println("\n");
+        Matrix.scalarMultiplication(matrix2,3);
+
     }
 }
 

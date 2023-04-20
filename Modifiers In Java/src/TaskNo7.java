@@ -10,21 +10,21 @@ public class TaskNo7 {
         System.out.println(isLeapYear(1600));
     }
     static boolean isLeapYear(int year) {
-        boolean is_leap_year = false;
+        boolean isLeapYear = false;
         if (year % 4 == 0) {
-            is_leap_year = true;
+            isLeapYear = true;
             if (year % 100 == 0) {
                 if (year % 400 == 0)
-                    is_leap_year = true;
+                    isLeapYear = true;
                 else
-                    is_leap_year = false;
+                    isLeapYear = false;
             }
         }
         else
-            is_leap_year = false;
-        if (!is_leap_year)
-           return is_leap_year;
+            isLeapYear = false;
+        if (!isLeapYear)
+           return isLeapYear;
         else
-            return is_leap_year;
+            return isLeapYear;
     }
 }
