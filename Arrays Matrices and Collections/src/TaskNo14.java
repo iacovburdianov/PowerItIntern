@@ -18,26 +18,23 @@ public class TaskNo14 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input N rows: ");
-        int row_size = scanner.nextInt();
+        int rowSize = scanner.nextInt();
 
         System.out.println("Input M colons: ");
-        int col_size = scanner.nextInt();
+        int colSize = scanner.nextInt();
 
-        int[][] myArray = new int[row_size][col_size];
+        int[][] myArray = new int[rowSize][colSize];
         System.out.println("Input elements: ");
-        for (int i = 0; i < row_size ; i++) {
-            for (int j = 0; j < col_size; j++) {
+        for (int i = 0; i < rowSize ; i++) {
+            for (int j = 0; j < colSize; j++) {
                 myArray[i][j] = scanner.nextInt();
             }
         }
 
-
-
-
-        int min=Integer.MAX_VALUE;
-        for(int i=0;i<row_size;i++)
+        int min = Integer.MAX_VALUE;
+        for(int i = 0;i < rowSize;i++)
         {
-            for(int j=0;j<col_size;j++)
+            for(int j = 0;j < colSize;j++)
             {
                 if(myArray[i][j] <= min)
                     min = myArray[i][j];

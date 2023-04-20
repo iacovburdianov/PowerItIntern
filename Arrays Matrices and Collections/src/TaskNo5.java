@@ -2,32 +2,38 @@ import java.util.Arrays;
 
 /*Write a Java program to find the maximum and minimum value and index of an array.*/
 public class TaskNo5 {
-    static int max;
-    static int min;
-    public static void max_min(int my_array[]) {
-        max = my_array[0];
-        min = my_array[0];
-        int len = my_array.length;
-        for (int i = 1; i < len - 1; i = i + 2) {
-            if (i + 1 > len) {
-                if (my_array[i] > max) max = my_array[i];
-                if (my_array[i] < min) min = my_array[i];
+
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 8, 4, 9, 1};
+        int[] result = findMaxMin(arr);
+        System.out.println("Maximum value is " + result[0] + " and its index is " + result[1]);
+        System.out.println("Minimum value is " + result[2] + " and its index is " + result[3]);
+    }
+
+    public static int[] findMaxMin(int[] arr) {
+        int[] result = new int[4];
+        int maxVal = arr[0];
+        int minVal = arr[0];
+        int maxIndex = 0;
+        int minIndex = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > maxVal) {
+                maxVal = arr[i];
+                maxIndex = i;
             }
-            if (my_array[i] > my_array[i + 1]) {
-                if (my_array[i] > max) max = my_array[i];
-                if (my_array[i + 1] < min) min = my_array[i + 1];
-            }
-            if (my_array[i] < my_array[i + 1]) {
-                if (my_array[i] < min) min = my_array[i];
-                if (my_array[i + 1] > max) max = my_array[i + 1];
+            if (arr[i] < minVal) {
+                minVal = arr[i];
+                minIndex = i;
             }
         }
-    }
-    public static void main(String[] args) {
-        int[] my_array = {15,64,98,7,5,4,-98,1002,5,4,9,7};
-        max_min(my_array);
-        System.out.println(" Original Array: "+ Arrays.toString(my_array));
-        System.out.println(" Maximum value for the above array = " + max);
-        System.out.println(" Minimum value for the above array = " + min);
+
+        result[0] = maxVal;
+        result[1] = maxIndex;
+        result[2] = minVal;
+        result[3] = minIndex;
+
+        return result;
     }
 }
+

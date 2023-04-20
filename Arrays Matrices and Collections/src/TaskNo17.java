@@ -18,7 +18,7 @@ public class TaskNo17 {
     public static void main(String[] args) {
         int[] arr = new int[]{1,2,3,4,5,6};
         int[] arr2 = addElementInTheStartOfTheArray(arr,9);
-        for (int i:arr2) {
+        for (int i : arr2) {
             System.out.print(i + "  ");
         }
 
@@ -32,7 +32,7 @@ public class TaskNo17 {
         System.out.println("\n");
 
         int[] arr4 = insertX(arr,9);
-        for (int i:arr4) {
+        for (int i : arr4) {
             System.out.print(i + "  ");
         }
     }

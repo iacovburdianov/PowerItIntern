@@ -6,7 +6,7 @@ import java.util.Scanner;
 *  and the sum of even values on the odd positions.
 * */
 public class TaskNo7 {
-    static void EvenOddProduct(int arr[], int n)
+    static void evenOddProduct(int arr[], int n)
     {
         int even = 1;
         int odd = 1;
@@ -23,7 +23,7 @@ public class TaskNo7 {
         System.out.println("Even Index Product : " + even);
         System.out.println("Odd Index Product : " + odd);
     }
-    static void EvenOddSum(int arr[], int n)
+    static void evenOddSum(int arr[], int n)
     {
         int even = 0;
         int odd = 0;
@@ -53,7 +53,7 @@ public class TaskNo7 {
         }
 
 
-        EvenOddProduct(myArray, myArray.length);
-        EvenOddSum(myArray, myArray.length);
+        evenOddProduct(myArray, myArray.length);
+        evenOddSum(myArray, myArray.length);
     }
 }

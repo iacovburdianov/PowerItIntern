@@ -1,40 +1,16 @@
 package TaskNo14Polymorphism;
 
-import java.util.Date;
-
-/**
- * Created by Admin on 4/14/2023
- *
- * @author : Admin
- * @date : 4/14/2023
- * @project : Inheritance
- */
 public class Visit {
-    String name;
     private Customer customer;
-    private Date date;
     private double serviceExpense;
     private double productExpense;
 
-    public Visit(String name, Date date) {
-        this.name = name;
-        this.date = date;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getServiceExpense() {
-        return serviceExpense;
+    public Visit(Customer customer) {
+        this.customer = customer;
     }
 
     public void setServiceExpense(double serviceExpense) {
         this.serviceExpense = serviceExpense;
-    }
-
-    public double getProductExpense() {
-        return productExpense;
     }
 
     public void setProductExpense(double productExpense) {
@@ -42,17 +18,16 @@ public class Visit {
     }
 
     public double getTotalExpense() {
-        return this.productExpense + this.serviceExpense;
+        double serviceDiscount = DiscountRate.getServiceDiscountRate(customer.getMemberType());
+        double productDiscount = DiscountRate.getProductDiscountRate();
+        double totalExpense = (1 - serviceDiscount) * serviceExpense + (1 - productDiscount) * productExpense;
+        return totalExpense;
     }
 
-    @Override
     public String toString() {
-        return "Visit{" +
-                "name='" + name + '\'' +
-                ", customer=" + customer +
-                ", date=" + date +
-                ", serviceExpense=" + serviceExpense +
-                ", productExpense=" + productExpense +
-                '}';
+        return "Customer name: " + customer.getName() + "\n" +
+                "Service expense: " + serviceExpense + "\n" +
+                "Product expense: " + productExpense + "\n" +
+                "Total expense: " + getTotalExpense() + "\n";
     }
 }
